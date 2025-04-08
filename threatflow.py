@@ -58,3 +58,19 @@ class Thehive:
             AlertArtifact(dataType="EventCode", data=splunk_datas["EventCode"], message="EventCode")
             ])
         self.client.create_alert(alert)
+
+class Main(Splunk, Thehive):
+    def __init__(self):
+        super().__init__()
+        Splunk.__init__(self)
+        Thehive.__init__(self)
+
+    def uploader(self):
+        splunk_datas = self.alert_datas
+        self.create_alert_function(splunk_datas)
+        while True:
+            if splunk_datas != self.alert_datas:
+                self.create_alert_function(splunk_datas)
+                splunk_datas = self.alert_datas
+            time.sleep(60)
+
