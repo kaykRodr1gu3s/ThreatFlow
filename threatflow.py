@@ -32,3 +32,29 @@ class Splunk:
         return transform_datas(connect_to_alert)   
 
 
+class Thehive:
+    def __init__(self):
+        self.api = os.getenv("thehive_api")
+        self.endpoint = os.getenv("thehive_ip")
+        self.client = TheHiveApi(self.endpoint, self.api)
+
+    def create_alert_function(self, splunk_datas):
+        
+        event_datas = pd.read_csv("windows_eventcode.csv", index_col=0)
+        alert = Alert(
+            title=f"Splunk Alert {splunk_datas["EventCode"]}",
+            type="external",
+            source="Splunk",
+            description=f"""
+            Description: {event_datas.query(f"Eventid == {splunk_datas['EventCode']}")["Description"].to_string(index=False)}
+            See more on: {event_datas.query(f"Eventid == {splunk_datas['EventCode']}")["See on"].to_string(index=False)}
+            """,
+            sourceRef=f"""Splunk alert:
+            uuid: {uuid.uuid4()}""",
+            artifacts=[
+            AlertArtifact(dataType="host", data=splunk_datas["host"]),
+            AlertArtifact(dataType="datetime", data=splunk_datas["_time"]),
+            AlertArtifact(dataType="SourceName", data=splunk_datas["SourceName"]),
+            AlertArtifact(dataType="EventCode", data=splunk_datas["EventCode"], message="EventCode")
+            ])
+        self.client.create_alert(alert)
