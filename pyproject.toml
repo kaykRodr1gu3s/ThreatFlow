@@ -1,0 +1,26 @@
+[project]
+name = "splunk2hive"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "kaykRodr1gu3s",email = "110197812+kaykRodr1gu3s@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "splunk-sdk (>=2.1.0,<3.0.0)",
+    "thehive4py (==1.8.2)",
+    "pandas (>=2.2.3,<3.0.0)",
+    "dotenv (>=0.9.9,<0.10.0)",
+    "libmagic (>=1.0,<2.0)",
+    "python-magic-bin (>=0.4.14,<0.5.0)",
+    "bs4 (>=0.0.2,<0.0.3)"
+]
+
+[tool.poetry]
+packages = [{include = "splunk2hive", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
