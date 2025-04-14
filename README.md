@@ -18,7 +18,6 @@ ThreatFlow is an automation that automates the alerts from Splunk, enriches them
 - [Customizing Detection Rules](#customizing-detection-rules)
 - [Alert in TheHive](#alert-in-thehive)
 - [Troubleshooting](#troubleshooting)
-- [FAQ](#faq)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -170,7 +169,7 @@ When an alert is triggered, TheHive will generate an alert preview similar to th
 
 ### Error Messages
 
-For more detailed error messages and solutions, refer to the [Error Log](error_log.md).
+For more detailed error messages and solutions, refer to the [Error Log]([error_log.md](https://github.com/kaykRodr1gu3s/ThreatFlow/blob/main/src/logs/error_log.md)).
 
 ## Quick Start
 
