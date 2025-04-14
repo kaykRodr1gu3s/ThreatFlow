@@ -1,3 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Logs
+*.log
+src/logs/
+scrapy.log
+
+# Data
+src/data/
+*.csv
+
+# Environment
 .env
-__pycache__/scrapy.cpython-313.pyc
+.venv
+env/
+venv/
+ENV/
 .toml
+.lock
