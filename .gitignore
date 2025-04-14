@@ -13,7 +13,6 @@ src/data/
 *.csv
 
 # Environment
-.env
 .venv
 env/
 venv/
