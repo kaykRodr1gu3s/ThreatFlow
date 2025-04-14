@@ -5,12 +5,10 @@ __pycache__/
 
 # Logs
 *.log
-src/logs/
+
 scrapy.log
 
 # Data
-src/data/
-*.csv
 
 # Environment
 .venv
